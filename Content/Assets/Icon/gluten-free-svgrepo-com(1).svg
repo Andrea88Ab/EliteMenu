@@ -1,0 +1,69 @@
+$(document).ready(function() {
+    // Registrazione del plugin ScrollTrigger con GSAP
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Funzione di ricerca AJAX
+    $('#searchBox').on('input', function() {
+        var searchTerm = $(this).val();
+
+        $.ajax({
+            url: '@Url.Action("Index", "Ristoranti")', // Assicurati che questo sia il percorso corretto
+            type: 'GET',
+            data: { searchTerm: searchTerm },
+            success: function(data) {
+                $('#restaurantList').html(data); // Assicurati che #restaurantList sia il selettore corretto
+            }
+        });
+    });
+
+    // Animazioni di comparsa per le card con GSAP e ScrollTrigger
+    gsap.utils.toArray('.containercards').forEach(card => {
+        gsap.from(card, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: card,
+                start: "top 90%",
+                toggleActions: "play none none none",
+            }
+        });
+    });
+    gsap.from("h2.text-center", {
+        duration: 1, // Durata dell'animazione
+        autoAlpha: 0, // Parte da invisibile (autoAlpha gestisce sia l'opacità che la visibilità)
+        y: -50, // Parte da 50 pixel più in alto dalla sua posizione finale
+        ease: "power1.out", // Tipo di easing per l'animazione
+        scrollTrigger: {
+            trigger: "h2.text-center", // Elemento che attiva l'animazione allo scroll
+            start: "top 80%", // Inizia quando il top dell'elemento raggiunge l'80% della viewport
+            toggleActions: "play none none none", // Azioni di animazione: play al primo ingresso, nessuna azione per gli altri stati
+        }
+    });
+
+
+    // Rotazione della card al click
+    document.querySelectorAll('.a2').forEach(card => {
+        const front = card.querySelector('.front');
+        const back = card.querySelector('.back');
+        const rotateBtn = front.querySelector('.rotate-btn');
+        const rotateBackBtn = back.querySelector('.rotate-back-btn');
+
+        rotateBtn.addEventListener('click', () => {
+            const tl = gsap.timeline();
+            tl.to(front, { rotationY: -180, duration: 0.7, ease: "power2.inOut" })
+                .to(back, { rotationY: 0, duration: 0.7, ease: "power2.inOut" }, "<") // Avvia simultaneamente la rotazione del retro
+                // Non è necessario impostare la visibilità qui se inizi con il retro nascosto e lo mostri solo dopo la rotazione
+                .set(back, { visibility: "visible" });
+        });
+
+        rotateBackBtn.addEventListener('click', () => {
+            const tl = gsap.timeline();
+            tl.to(back, { rotationY: 180, duration: 0.7, ease: "power2.inOut" })
+                .to(front, { rotationY: 0, duration: 0.7, ease: "power2.inOut" }, "<") // Ritorna il fronte alla posizione originale simultaneamente
+                .set(back, { visibility: "hidden" }, "+=0.7"); // Nasconde il retro alla fine dell'animazione
+        });
+    });
+
+
+});

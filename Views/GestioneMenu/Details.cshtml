@@ -1,0 +1,79 @@
+﻿@model EliteMenu.Models.Menu
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Dettagli Menu";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h3>@Html.DisplayFor(model => model.Nome)</h3>
+    <p>@Html.DisplayFor(model => model.Descrizione)</p>
+    
+</div>
+
+
+<p>
+    <a href="@Url.Action("CreatePiatto", "GestioneMenu", new { menuId = Model.MenuID })" class="btn btn-success">Aggiungi Nuovo Piatto</a>
+</p>
+
+<h3>Piatti</h3>
+
+
+
+
+@if (Model.Piatti != null && Model.Piatti.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-hover rounded shadow">
+            <thead class="table-dark">
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Descrizione</th>
+                    <th>Sezioni</th>
+                    <th>Categoria</th>
+                    <th>Prezzo</th>
+
+
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var piatto in Model.Piatti)
+                {
+                    <tr>
+                        <td>
+                            @if (!String.IsNullOrEmpty(piatto.Foto))
+                            {
+                                <img src="@Url.Content(piatto.Foto)" alt="Immagine del Piatto" style="width:100px; height:auto;" />
+                            }
+                            else
+                            {
+                                <text>Nessuna immagine disponibile.</text>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => piatto.Nome)</td>
+                        <td>@Html.DisplayFor(modelItem => piatto.Descrizione)</td>
+                        <td>@Html.DisplayFor(modelItem => piatto.Sezione)</td>
+                        <td>@Html.DisplayFor(modelItem => piatto.Categoria)</td>
+
+                        <td>@String.Format("{0:C}", piatto.Prezzo)</td>
+                        
+
+                        <td>
+                            <a href="@Url.Action("EditPiatto", "GestioneMenu", new { id = piatto.PiattoID })" class="btn btn-outline-primary btn-sm">Modifica</a>
+                            <a href="@Url.Action("DeletePiatto", "GestioneMenu", new { id = piatto.PiattoID })" class="btn btn-outline-danger btn-sm">Elimina</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>Nessun piatto associato a questo menu.</p>
+}

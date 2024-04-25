@@ -1,0 +1,31 @@
+﻿
+@model IEnumerable<EliteMenu.Models.Piatti>
+
+<div class="container">
+    <div class="row">
+        @foreach (var piatto in Model)
+        {
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <!-- Colonne responsive -->
+                <div class="card h-100" style="background-color: #0000003d; border-radius: 50px;">
+
+                    <!-- Esempio di Lazy Loading con attributo "loading" -->
+<div class="img-container">
+    <img src="@Url.Content(piatto.Foto)" loading="lazy" class="card-img-top " alt="@piatto.Nome">
+</div>                    
+
+
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #BF953F; font-size: 25px;">@piatto.Nome</h5>
+                        <p class="card-text" style="margin-top: 10px;">@piatto.Descrizione</p>
+                        <p class="card-text" style="text-align: end; margin-top: 15px;">Prezzo: @piatto.Prezzo.ToString("C")</p>
+                    </div>
+                    <div class="card-footer" style="display: flex; align-items: center; flex-direction: column; ">
+                        <p style="color: #BF953F "> @piatto.Menu.Ristoranti.Nome</p>
+                        <a href="@Url.Action("Piatti", "Menu", new { ristoranteId = piatto.Menu.RistoranteID })" class="card-link" style="text-decoration: none; text-align: center; margin-top: 10px; background-color: #393939; padding: 10px; border-radius: 30px; color: #BF953F; margin-bottom: 10px;"> Vedi Menu</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

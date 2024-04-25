@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EliteMenu.Models.Menu>
+
+<style>
+
+    .full-width-svg {
+        width: 100%; 
+    }
+
+    .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+</style>
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-3">
+            <div class="input-group mb-3">
+                <div class="d-flex align-items-center">
+
+                    <span class="material-icons ">search</span>
+
+                    <input type="text" id="searchBox" class="form-control" placeholder="Cerca " aria-label="Cerca" aria-describedby="basic-addon1" autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container " id="restaurantList" >
+
+
+    <div> @Html.Partial("_MenuList", Model)</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+    $('#searchBox').on('input', function() {
+        var searchTerm = $(this).val();
+
+        $.ajax({
+            url: '@Url.Action("Index", "Menu")',
+            type: 'GET',
+            data: { searchTerm: searchTerm },
+            success: function(data) {
+                $('#restaurantList').html(data);
+            }
+        });
+    });
+});
+
+
+</script>
+

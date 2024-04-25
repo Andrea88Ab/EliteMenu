@@ -1,0 +1,92 @@
+﻿@model IEnumerable<EliteMenu.Models.Ristoranti>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Elenco Ristoranti";
+}
+
+<style>
+    
+    body {
+        background-color: #1c1b1b; 
+        color: #fff; 
+    }
+
+    
+    .card-custom {
+        overflow: hidden;
+        border: none;
+        border-radius: 15px; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    }
+
+        .card-custom:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 0 20px rgba(255,255,255,0.25); 
+        }
+
+    
+    .card-img-top {
+        height: 200px;
+        object-fit: cover; 
+    }
+
+    
+    .card-link-custom {
+        color: #ffc107; 
+        font-weight: bold; 
+    }
+
+    
+    .bg-dark-custom {
+        background-color: #212529; 
+        color: #fff; 
+    }
+
+    
+    .btn-primary-custom {
+        background-color: #007bff; 
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px; 
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+    }
+
+        .btn-primary-custom:hover {
+            background-color: #0056b3; 
+        }
+</style>
+
+<div class="container mt-5 py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">@ViewBag.Title</h1>
+        <a href="@Url.Action("Create")" class="btn btn-primary-custom">Crea Nuovo Ristorante</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card card-custom bg-dark-custom">
+                    @if (!string.IsNullOrEmpty(item.Foto))
+                    {
+                        <img src="@Url.Content(item.Foto)" alt="Immagine Ristorante" class="card-img-top">
+                    }
+                    else
+                    {
+                        <img src="@Url.Content("~/images/default.png")" alt="Immagine predefinita" class="card-img-top">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Descrizione)</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0">
+                        <a href="@Url.Action("Details", new { id=item.RistoranteID })" class="card-link card-link-custom">Dettagli</a>
+                        <a href="@Url.Action("Edit", new { id=item.RistoranteID })" class="card-link card-link-custom">Modifica</a>
+                        <a href="@Url.Action("Delete", new { id=item.RistoranteID })" class="card-link card-link-custom">Elimina</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

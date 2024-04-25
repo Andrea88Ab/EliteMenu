@@ -1,0 +1,49 @@
+﻿@model IEnumerable<IGrouping<string, EliteMenu.Models.Piatti>>
+
+@foreach (var gruppo in Model)
+{
+    <h3 class="text-center " style="font-family: 'Stalemate', cursive; font-size: 50px; font-weight: bold; text-transform: capitalize; color: #BF953F; margin-top: 45px;" id="sezione">@gruppo.Key</h3>
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            @foreach (var piatto in gruppo)
+            {
+                <div class="col-12 col-md-12 col-lg-5 m-3" style=" background-color: #0000003d; padding: 15px; border-radius: 12%;">
+                    <div id="nome-piatto">
+                        <h5 class="card-title" id="testopiatto" style="font-family: 'Stalemate', cursive; color: #BF953F; font-size:50px;">@piatto.Nome</h5>
+                    </div>
+                    <div class="card card-custom card-con-sfondo m-4 mb-lg-5" style="background-image: url('@Url.Content(!string.IsNullOrEmpty(piatto.Foto) ? piatto.Foto : "~/images/default.jpg")');">
+                        <div class="card-img-overlay card-body-custom">
+
+
+                            <button type="button" class="toggle-menu-btn btn btn-primary btn-circle btn-lg">
+
+                                <img id="arrow1" src="~/Content/Assets/Icon/arrow-double-start-svgrepo-com.svg" style="width:20px" />
+                            </button>
+
+                            <div class="card-menu " style="background-color: #322022 ">
+
+                                <div id="tendina" style="padding:25px;">
+                                    <p class="card-text" style=" color: #BF953F; font-size: 35px; text-align: center; margin-top: 10px; ">" @piatto.Descrizione "</p>
+
+                                    <p>Ingredienti:</p>
+                                    <div id="ingredienti">
+                                        <ul>
+                                            @foreach (var ingrediente in piatto.Ingredienti)
+                                            {
+                                                <li>@ingrediente.Nome</li>
+                                            }
+                                        </ul>
+                                        <p class="card-text" style="text-align: end; position: relative; bottom: 16px;">
+                                        <p  style="font-size: 18px; color: #BF953F">Prezzo: @String.Format("{0:C}", piatto.Prezzo)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+}
+

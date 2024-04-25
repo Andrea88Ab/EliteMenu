@@ -1,0 +1,38 @@
+﻿<div class="container mt-5" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #281e1e; border-radius: 35px; padding: 25px; max-width: 500px;">
+    <h1 class="mb-4" style="color: #bf953f;">Richiesta Prenotazione</h1>
+
+    @using (Html.BeginForm("InviaPrenotazione", "Ristoranti", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            <input type="date" class="form-control" name="data" id="data" required />
+        </div>
+        <div class="mb-3">
+            <label for="ora" class="form-label">Ora</label>
+            <input type="time" class="form-control" name="ora" id="ora" required />
+        </div>
+        <div class="mb-3">
+            <label for="persone" class="form-label">Persone</label>
+            <input type="number" class="form-control" name="persone" id="persone" min="1" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Area fumatori</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="areaFumatori" id="fumatori" value="Fumatori" />
+                <label class="form-check-label" for="fumatori">Sì</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="areaFumatori" id="nonFumatori" value="NonFumatori" />
+                <label class="form-check-label" for="nonFumatori">No</label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="allergie" class="form-label">Allergie</label>
+            <textarea class="form-control" name="allergie" id="allergie" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Invia Prenotazione</button>
+    }
+</div>
+
+

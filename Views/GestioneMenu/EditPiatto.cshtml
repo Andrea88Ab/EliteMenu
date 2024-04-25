@@ -1,0 +1,83 @@
+﻿@model EliteMenu.Models.Piatti
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Modifica Piatto";
+}
+<div class="login-container">
+    <div class=" login-form mt-4">
+        <h2 class="text-center">@ViewBag.Title</h2>
+
+        @using (Html.BeginForm("EditPiatto", "GestioneMenu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.HiddenFor(model => model.PiattoID)
+            @Html.HiddenFor(model => model.MenuID)
+
+    <div class="row">
+        <!-- Parte sinistra: Campi del form -->
+        <div class="col-md-6">
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Nome)
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Descrizione)
+                @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Prezzo)
+                @Html.EditorFor(model => model.Prezzo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Prezzo, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Sezione)
+                @Html.EditorFor(model => model.Sezione, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Categoria)
+                @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        
+        <div class="col-md-6">
+            <div class="form-group mb-4">
+                @Html.LabelFor(model => model.Foto)
+                <input type="file" name="fileUpload" class="form-control" aria-describedby="imageHelp" />
+                <small id="imageHelp" class="form-text text-muted">Carica una nuova immagine per sostituire quella esistente, se desiderato.</small>
+            </div>
+
+            @if (!String.IsNullOrWhiteSpace(Model.Foto))
+            {
+                <div class="form-group text-center">
+                    <label>Immagine Attuale</label>
+                    <div style="width:300px; margin: auto;">
+                        <img src="@Url.Content(Model.Foto)" alt="Immagine attuale" class="img-thumbnail img-fluid" />
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+            <!-- Pulsante di invio -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Salva modifiche</button>
+                @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EliteMenu.Models.Menu>
+
+@{
+    ViewBag.Title = "Elenco Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Crea Nuovo Menu", "CreateMenu", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrizione</th>
+            <th>Ristorante</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MenuID)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descrizione)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ristoranti.Nome)</td>
+                <td>
+                    @Html.ActionLink("Piatti", "Details", new { id = item.MenuID }, new { @class = "btn btn-info btn-sm" })
+                    @Html.ActionLink("Modifica", "EditMenu", new { id = item.MenuID }, new { @class = "btn btn-warning btn-sm" })
+                    @Html.ActionLink("Elimina", "DeleteMenu", new { id = item.MenuID }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

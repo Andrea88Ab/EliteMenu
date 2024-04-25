@@ -1,0 +1,82 @@
+﻿@model EliteMenu.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Registrazione";
+
+    <style>
+        .btn-login {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #a67c00;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .btn-login:hover {
+                background-color: #a67c00;
+                color: black;
+            }
+    </style>
+}
+
+<div class="container" style="display: flex; flex-direction: column; align-items: center; background-color: #0000003d; border-radius: 20px; max-width: 400px; padding: 25px; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); ">
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome)
+            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, "Password")
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword)
+            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+
+
+
+
+        <button type="submit" class="btn-login">Registra</button>
+
+        <a href="@Url.Action("Login", "Auth")" class="btn-login" style = "text-decoration-line: none; display: block; text-align: center; margin-top: 25px;" >Login</a>
+
+    }
+
+
+</div>
+
+
+
+
+<script>
+    function showPreview(event) {
+        if (event.target.files.length > 0) {
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("avatarPreview");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+    }
+</script>

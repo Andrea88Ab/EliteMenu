@@ -1,0 +1,80 @@
+﻿@model EliteMenu.Models.Ristoranti
+
+@{
+    ViewBag.Title = "Modifica Ristorante";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div style="display: flex;  align-items: center; ">
+    @using (Html.BeginForm("Edit", "GestioneRistoranti", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.RistoranteID)
+        
+
+    <div class="row" style="justify-content:center;">
+
+        <div class="col">
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome)
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Indirizzo)
+                @Html.EditorFor(model => model.Indirizzo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Indirizzo, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefono)
+                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descrizione)
+                @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+        
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Foto)
+                <input type="file" name="fileUpload" class="form-control" />
+                @if (Model.Foto != null)
+                {
+                    <div style="max-width:500px;">
+                        <img class="img-fluid" src="@Url.Content(Model.Foto)" alt="Foto attuale del ristorante" ; margin-top: 20px;" />
+
+                    </div>
+                }
+            </div>
+        
+    </div>
+    
+            <button type="submit" class="btn btn-primary">Salva modifiche</button>
+            @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-secondary" })
+
+
+            }
+        </div>
+
+
+

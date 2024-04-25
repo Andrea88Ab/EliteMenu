@@ -1,0 +1,364 @@
+﻿
+
+@model EliteMenu.Models.Ristoranti
+
+
+<style>
+    .btn-login {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #bf953f;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        .btn-login:hover {
+            background-color: #a67c00;
+            color: black;
+        }
+</style>
+
+<div class="container" style="display:flex; flex-direction:column; align-items:center;">
+
+    <div class="">
+
+
+
+
+        <div class="col" style="  max-width: 900px;  padding: 2%; border-radius: 28px; ">
+            <h1 style="text-align: center; font-family: 'Stalemate', cursive; color: #BF953F; font-size: 4rem; margin-bottom: 22px; margin-top: 4px; } " id="nomeRistorante">@Model.Nome</h1>
+            <img style="border-radius: 25px; box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); " src="@Url.Content(!string.IsNullOrEmpty(Model.Foto) ? Model.Foto : "~/images/default.jpg")" class="d-block  w-100 " id="foto-carus" alt="Descrizione alternativa ">
+
+            
+ 
+        </div>
+
+        <div class="" style="display: flex; justify-content: center; margin-top: 25px; margin-bottom: 35px; background-color: #0000003d; padding: 25px; border-radius: 30px; flex-wrap: wrap;">
+            <div class="" style="display: flex; align-items: center; justify-content: flex-start;">
+                <div>
+                    <a href="https://maps.google.com/?q=@Model.Indirizzo" target="_blank" style="display: flex; align-items: center;">
+
+                        <img src="~/Content/Assets/Icon/location.svg" style="width:25px; margin-left:25px;" />
+                    </a>
+
+                </div>
+
+                <div style="display: flex; align-items: center;  ">
+                    <p style="margin-left: 15px;">@Model.Indirizzo</p>
+                </div>
+
+            </div>
+
+
+            <div style="display: flex; align-items: center; justify-content: flex-start; ">
+                <div>
+                    <img src="~/Content/Assets/Icon/tel.svg" style="width: 25px; margin-left: 25px;" />
+
+                </div>
+
+                <div style="display: flex; justify-content:center;">
+                    <p style="margin-left: 5px;">@Model.Telefono</p>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="" style="display: flex; align-items: center; justify-content: flex-start;">
+                <div>
+
+                    <img src="~/Content/Assets/Icon/email.svg" style="width: 25px; margin-left: 25px;" />
+
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <p style="margin-left: 5px;">@Model.Email</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; flex-direction: column; align-items: center; margin-bottom: 40px;">
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Prenota", "Prenota", "Ristoranti", null, new { @class = "btn btn-primary" })
+            }
+            else
+            {
+                <span class="btn btn-primary disabled" style="opacity: 0.5; pointer-events: none; margin-bottom:10px;">Prenota</span>
+                <p  style="color:whitesmoke;">Per prenotare, per favore <a href="@Url.Action("Login", "Account")" style="color: #bf953f;">accedi al tuo account</a>.</p>
+            }
+          </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="container" @*style="background-color:wheat"*@>
+    <div class="row">
+
+
+        <div id="ristoranteHero" style="max-width:400px; margin-left:auto;margin-right:auto;" class="hero-section" >
+            <div class="hero-content" style="background-color: #0000003d; padding: 44px; border-radius: 38px;">
+
+
+                <!-- Carosello di immagini del ristorante -->
+                <div class="container">
+                    <div class="row flex-nowrap ">
+                        <!-- Primo Carosello -->
+                        <div class="col">
+                            <div id="caroselloRistorante1" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner" style="border-radius: 10px;">
+                                    <div class="carousel-item active">
+                                        <img src="https://unsplash.it/500/500/" class="d-block w-100" alt="Immagine del Ristorante 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://unsplash.it/500/501/" class="d-block w-100" alt="Immagine del Ristorante 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://unsplash.it/500/502/" class="d-block w-100" alt="Immagine del Ristorante 3">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#caroselloRistorante1" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Precedente</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#caroselloRistorante1" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Successivo</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Secondo Carosello -->
+                        <div class="col">
+                            <div id="caroselloRistorante2" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner" style="border-radius: 10px;">
+                                    <div class="carousel-item active">
+                                        <img src="https://unsplash.it/500/500/" class="d-block w-100" alt="Immagine del Ristorante 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://unsplash.it/500/501/" class="d-block w-100" alt="Immagine del Ristorante 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://unsplash.it/500/502/" class="d-block w-100" alt="Immagine del Ristorante 3">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#caroselloRistorante2" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Precedente</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#caroselloRistorante2" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Successivo</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container-fluid" style="display:flex; justify-content:center;">
+                    <img class="img-fluid" style="margin-top:20px;" src="~/Content/Assets/Elite Menu(1).svg" />
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 20px;margin-bottom:20px;">
+            @if (Request.IsAuthenticated)
+            {
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#commentModal">
+                    Feedback
+                </button>
+            }
+            else
+            {
+                <p>Per lasciare un Feedback, per favore <a href="@Url.Action("Login", "Auth")">Accedi</a>.</p>
+            }
+        </div>
+
+
+        <div>
+
+            <!-- Sezione commenti -->
+            @if (Model.CommentiRistoranti != null && Model.CommentiRistoranti.Any())
+            {
+                <div class="mt-4">
+                    <h3 style="font-size:2.5rem;">Reviews:</h3>
+                    @foreach (var commento in Model.CommentiRistoranti)
+                    {
+                        <div class="card mb-3" style="background-color: #0000003d; border-radius: 15px; padding: 10px; box-shadow: 1px 8px 6px 0px rgba(0,0,0,0.75); ">
+                            <div class="card-body">
+                                <div class="tit-val" style="display:flex; margin-bottom:15px;">
+                                    <div>
+                                        <h3 style="margin-bottom: 0; color: #BF953F;">
+                                            @commento.Titolo
+                                        </h3>
+                                    </div>
+
+                                    <div style="display: flex; align-items: center; margin-left: 20px; ">
+                                        <span class="text-white">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= (commento.Valutazione ?? 0))
+                                                {
+                                                    <i class="fa-solid fa-circle" style="color: #BF953F;"></i> <!-- Stelle colorate -->
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa-solid fa-circle" style="color: grey;"></i> <!-- Stelle non colorate -->
+                                                }
+                                            }
+                                        </span>
+
+
+                                       
+
+                                    </div>
+                                </div>
+
+
+                                <div style="display:flex;">
+
+
+
+                                    <div>
+                                        @if (commento.Utenti != null && !string.IsNullOrEmpty(commento.Utenti.Avatar))
+                                        {
+                                            <img src="@Url.Content(commento.Utenti.Avatar)" alt="Avatar" style="width:50px; height:50px; border-radius:50%;">
+                                        }
+
+
+                                        <p style="color:dimgrey; margin-top:5px;">@(commento.Utenti != null ? commento.Utenti.Nome : "Anonimo")</p>
+                                    </div>
+                                    <div style="margin-left:25px;"><p class="card-text" style="color:white;">@commento.Testo</p></div>
+
+                                </div>
+
+                            </div>
+                            <div style="color:gray;margin-left:12px;">
+                                @commento.DataOra.ToString("dd/MM/yyyy")
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-info" role="alert">
+                    Non ci sono commenti disponibili per questo ristorante.
+                </div>
+            }
+
+        </div>
+
+
+        <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color: #241616; border-radius: 25px; padding: 15px;">
+                    <div class="modal-header" style="border-bottom: 1px solid ; ">
+                        <h5 class="modal-title" id="commentModalLabel" style="margin-left:auto;">Feedback</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #bf953f;"></button>
+                    </div>
+                    <div class="modal-body" style="display:flex; justify-content:center;">
+                        @using (Html.BeginForm("AggiungiCommento", "Ristoranti", FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("RistoranteID", Model.RistoranteID)
+
+
+                            <div class="form-group">
+                                <label for="titoloCommento">Titolo</label>
+                                <input type="text" class="form-control" id="titoloCommento" name="Titolo" required>
+                                <label for="testoCommento">Testo</label>
+                                <textarea class="form-control" id="testoCommento" name="Testo" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="valutazioneCommento" style="margin-bottom:10px;">Valutazione</label>
+                                <div id="star-rating">
+                                    <i class="fa-solid fa-circle star" data-value="1" style="margin-right:5px;"></i>
+                                    <i class="fa-solid fa-circle star" data-value="2" style="margin-right:5px;"></i>
+                                    <i class="fa-solid fa-circle star" data-value="3" style="margin-right:5px;"></i>
+                                    <i class="fa-solid fa-circle star" data-value="4" style="margin-right:5px;"></i>
+                                    <i class="fa-solid fa-circle star" data-value="5" style="margin-right:5px;"></i>
+                                    <input type="hidden" name="Valutazione" id="valutazioneCommento">
+                                </div>
+                            </div>
+
+
+                            <div class="modal-footer" style="border-top:1px solid;">
+                                @*<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>*@
+                                <button type="submit" class="btn btn-login">Invia Feedback</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+
+
+<script>
+  
+
+    $(document).ready(function () {
+        var $stars = $('.star');
+
+        $stars.mouseover(function () {
+            var index = $(this).index();
+            $stars.slice(0, index + 1).addClass('hovered');
+        }).mouseout(function () {
+            $stars.removeClass('hovered');
+        });
+
+        $stars.click(function () {
+            var index = $(this).index();
+            $stars.removeClass('selected');
+            $stars.slice(0, index + 1).addClass('selected');
+            $('#valutazioneCommento').val(index + 1);
+        });
+    });
+
+   
+  
+
+
+
+</script>

@@ -1,0 +1,149 @@
+﻿@using EliteMenu.ViewModels
+@model List<RistoranteViewModel>
+
+@{
+    ViewBag.Title = "Ristoranti";
+}
+
+
+
+
+
+<div class="container">
+    <h2 class="text-center " style="font-family: 'Stalemate', cursive; font-size: 70px; font-weight: bold; text-transform: capitalize; color: #BF953F;">Ristoranti</h2>
+
+    <div class="row d-flex justify-content-center">
+
+        @foreach (var vm in Model)
+        {
+            var galleryId = $"gallery-{vm.Ristorante.RistoranteID}";
+
+            <div class=" col-12 col-md-10 col-lg-6 col-xl-6 col-xxl-6 m-5 menu-container " style="background-color: #0000003d; padding: 15px; border-radius: 12%; box-shadow: -1px 8px 0px 7px #bf953f57; ">
+                <h3 class="text-center" style="font-family: 'Stalemate', cursive; color: #BF953F; font-size:50px;">@vm.Ristorante.Nome</h3>
+                <div style="display: flex; justify-content: flex-end;">
+                    <a href="@Url.Action("Details", "Ristoranti", new { id = vm.Ristorante.RistoranteID })" style="text-decoration: none;">
+                        <img src="~/Content/Assets/Icon/info.svg" alt="Dettagli" style=" max-width: 50px; margin-right: 20px; box-shadow: -2px 9px 18px 2px #0101017a; border-radius: 50px;">
+                    </a>
+
+
+                </div>
+                <div class="a2" ontouchstart="this.classList.toggle('hover');">
+                    <div class="containercards">
+                        <div class="front">
+                            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                </div>
+                                <div class="carousel-inner  ">
+                                    <div class="carousel-item active ">
+                                        <img src="@Url.Content(!string.IsNullOrEmpty(vm.Ristorante.Foto) ? vm.Ristorante.Foto : "~/images/default.jpg")" class="d-block  w-100 " id="foto-carus" alt="Descrizione alternativa ">
+
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="@Url.Content(!string.IsNullOrEmpty(vm.Ristorante.Foto) ? vm.Ristorante.Foto : "~/images/default.jpg")" class="d-block w-100" id="foto-carus" alt="Descrizione alternativa">
+
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="@Url.Content(!string.IsNullOrEmpty(vm.Ristorante.Foto) ? vm.Ristorante.Foto : "~/images/default.jpg")" class="d-block w-100" id="foto-carus" alt="Descrizione alternativa">
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
+
+                            <div class="inner">
+                                <div class="rotate-c">
+                                    <img src="@Url.Content("~/Content/Assets/Icon/gesture1.svg")" alt="Ruota" class="rotate-btn" role="button" aria-label="Ruota" style="max-width:45px; padding:7px;">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="back">
+                            <div class="row">
+
+                                @{
+                                    int count = 0; 
+                                }
+
+                                @foreach (var piatto in vm.Piatti)
+                                {
+                                    if (count < 6)
+                                    {
+                                        <div class="col-4">
+                                            
+                                            <a data-fancybox="@galleryId" href="@Url.Content(piatto.Foto)"
+                                               data-caption="@piatto.Nome">
+                                                <img src="@Url.Content(piatto.Foto)" class="foto-piatto zoomable-img" alt="Foto del piatto" />
+                                            </a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-4" style="display: none;">
+                                            
+                                            <a data-fancybox="@galleryId" href="@Url.Content(piatto.Foto)"
+                                               data-caption="@piatto.Nome">
+                                                <img src="@Url.Content(piatto.Foto)" class="foto-piatto zoomable-img" alt="Foto del piatto" />
+                                            </a>
+                                        </div>
+                                    }
+                                    count++; 
+                                }
+
+
+                            </div>
+
+                            <div class="inner">
+
+
+                                <div class="rotate-c">
+                                    <img src="@Url.Content("~/Content/Assets/Icon/gesture1.svg")" alt="Ruota" class="rotate-back-btn" role="button" aria-label="Ruota" style="max-width:45px; padding:7px; ">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="container " style="max-width: 118px; position: relative; top: 16px;">
+
+
+                    <a href="@Url.Action("Piatti", "Menu", new { ristoranteId = vm.Ristorante.RistoranteID })" style="text-decoration: none;">
+                        <div class="pulsating-border " style=" box-shadow: 0px 7px 3px 5px #000000b5; border-radius: 50%; background-color: #2b2222; }">
+                            <img class="img-fluid" src="@Url.Content("~/Content/Assets/2.svg")" alt="Oggetto Sospeso" />
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>}
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+

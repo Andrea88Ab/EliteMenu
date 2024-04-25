@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EliteMenu.Models.Menu>
+@{
+    ViewBag.Title = "Menu";
+}
+
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        @foreach (var menu in Model)
+        {
+            <div class="col-md-6 col-lg-4 mb-3 d-flex">
+                <div class="card card-menu m-4 mb-lg-5 " style="background-color: transparent; border:none; display: flex; align-items: center; ">
+
+                    <div class="container-fluid">
+
+
+                        <div class="sospeso" style=" position: relative; box-shadow: 0px 20px 3px 15px rgb(0 0 0 / 36%); border-radius: 50%; animation: fluttua 3s ease-in-out infinite; bottom: 0px;">
+                            <img class="img-fluid" src="@Url.Content("~/Content/Assets/1.svg")" alt="Oggetto Sospeso" />
+                        </div>
+
+
+                    </div>
+
+                    <div >
+                        <h5 class="card-title" id="testopiatto" style="font-size:25px">@menu.Nome</h5>
+                        <p class="card-text text-black">@Html.DisplayFor(modelItem => menu.Descrizione)</p>
+                    </div>
+                    <div>
+                        <small class="text-muted">Ulteriori dettagli qui</small>
+                        
+                        <a href="@Url.Action("Piatti", "Menu", new { menuId = menu.MenuID })" class="btn btn-primary">Vedi Piatti</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+

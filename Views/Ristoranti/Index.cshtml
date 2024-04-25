@@ -1,0 +1,197 @@
+﻿@using EliteMenu.ViewModels
+@model List<RistoranteViewModel>
+
+@{
+    ViewBag.Title = "Ristoranti";
+}
+<style>
+    .full-width-svg {
+        width: 100%; 
+    }
+
+    .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+    .foto-piatto {
+        width: 100%; 
+        height: 125px; /* altezza fissa */
+        object-fit: cover;
+        margin-bottom: 15px;
+        border-radius: 15px;
+        box-shadow: -2px 8px 8px 8px rgb(18 15 15)
+    }
+
+    #foto-carus {
+        object-fit: cover;
+        height: 290px;
+        width: 100%;
+        border-radius:20px;
+    }
+    .menu-container {
+        visibility: hidden; 
+        opacity: 0; 
+        
+    }
+
+    
+
+</style>
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-8 ">
+            <div class="input-group mb-3">
+                <div class="d-flex align-items-center">
+
+                    <span class="material-icons ">search</span>
+
+                    <input type="text" id="searchBox" class="form-control" placeholder="Cerca " aria-label="Cerca" aria-describedby="basic-addon1" autocomplete="off">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="restaurantList" class="container mt-3">
+
+
+    @Html.Partial("_RistorantiList", Model)
+</div>
+
+
+
+
+
+
+
+
+<script src="@Url.Content("https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js")"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+     $(window).on("load", function () {
+    initScrollAnimations(); // Inizializza le animazioni quando il DOM è pronto
+
+    $('#searchBox').on('input', function() {
+        var searchTerm = $(this).val();
+        $.ajax({
+            url: '@Url.Action("Index", "Ristoranti")',
+            type: 'GET',
+            data: { searchTerm: searchTerm },
+            success: function(data) {
+                $('#restaurantList').html(data);
+                initScrollAnimations(); // Re-inizializza le animazioni per il nuovo contenuto
+            }
+        });
+    });
+
+
+
+});
+
+
+    function initScrollAnimations() {
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        gsap.set('.menu-container', { autoAlpha: 1,  });
+
+        gsap.utils.toArray('.menu-container').forEach(card => {
+            gsap.from(card, {
+                autoAlpha: 0,
+                y: 100,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                    
+                }
+            });
+        });
+
+
+        gsap.from("h2.text-center", {
+            duration: 1, // Durata dell'animazione
+            autoAlpha: 0, // Parte da invisibile (autoAlpha gestisce sia l'opacità che la visibilità)
+            y: -50, // Parte da 50 pixel più in alto dalla sua posizione finale
+            ease: "power1.out", // Tipo di easing per l'animazione
+            scrollTrigger: {
+                trigger: "h2.text-center", // Elemento che attiva l'animazione allo scroll
+                start: "top 80%", // Inizia quando il top dell'elemento raggiunge l'80% della viewport
+                toggleActions: "play none none none", // Azioni di animazione: play al primo ingresso, nessuna azione per gli altri stati
+            }
+        });
+        document.querySelectorAll('.a2').forEach(card => {
+            const front = card.querySelector('.front');
+            const back = card.querySelector('.back');
+            const rotateBtn = front.querySelector('.rotate-btn'); // Il bottone di rotazione sul fronte
+            const rotateBackBtn = back.querySelector('.rotate-back-btn'); // Il bottone di rotazione sul retro
+
+            // Funzione per gestire la rotazione della card
+            function rotateCard() {
+                const tl = gsap.timeline();
+                tl.to(front, { rotationY: "-=180", duration: 0.7, ease: "power2.inOut" })
+                    .to(back, { rotationY: "-=180", duration: 0.7, ease: "power2.inOut" }, "<")
+                    .set(back, { visibility: "visible" });
+            }
+
+            // Funzione per gestire il ritorno al fronte della card
+            function rotateCardBack() {
+                const tl = gsap.timeline();
+                tl.to(back, { rotationY: "-=180", duration: 0.7, ease: "power2.inOut" })
+                    .to(front, { rotationY: "-=180", duration: 0.7, ease: "power2.inOut" }, "<")
+                    .set(back, { visibility: "hidden" },"+=0.7");
+            }
+
+            rotateBtn.addEventListener('click', function (e) {
+                e.stopPropagation(); // Previene la propagazione per non attivare altri listener non desiderati
+                rotateCard();
+            });
+
+            rotateBackBtn.addEventListener('click', function (e) {
+                e.stopPropagation(); // Previene la propagazione per non attivare altri listener non desiderati
+                rotateCardBack();
+            });
+        });
+
+
+
+
+    }
+    Fancybox.bind('[data-fancybox^="gallery-"]', {
+        loop: true, 
+        Keyboard: true, 
+        
+    });
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

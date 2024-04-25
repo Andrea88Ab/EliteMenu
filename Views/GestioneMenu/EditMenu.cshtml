@@ -1,0 +1,43 @@
+﻿@model EliteMenu.Models.Menu
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+    ViewBag.Title = "Modifica Menu";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h2 class="text-center mb-4">@ViewBag.Title</h2>
+
+            @using (Html.BeginForm("Edit", "Menu", FormMethod.Post, new { Role = "form", @class = "login-form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(model => model.MenuID)
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.Nome, new { @class = "form-label" })
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", placeholder = "Nome del Menu" } })
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.RistoranteID, "Ristorante", new { @class = "form-label" })
+                    @Html.DropDownList("RistoranteID", null, "--- Seleziona Ristorante ---", new { @class = "form-select" })
+                    @Html.ValidationMessageFor(model => model.RistoranteID, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.Descrizione, new { @class = "form-label" })
+                    @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control", placeholder = "Descrizione del Menu" } })
+                    @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Salva</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

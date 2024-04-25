@@ -1,0 +1,477 @@
+﻿
+
+<style>
+    .part {
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+
+    #rest {
+        opacity: 0; 
+    }
+
+    .rubik-vinyl-regular {
+        font-family: "Rubik Vinyl", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    #lalezar-regular {
+        font-family: "Lalezar", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    #adjective {
+        display: inline-block; 
+        width: 320px; 
+        text-align: center; 
+        transition: opacity 0.5s ease-in-out;
+    }
+
+
+
+    .main-container {
+        width: 100vw; 
+        height: 100vh; 
+        overflow: hidden; 
+        position: relative; 
+        
+    }
+
+    .extra-long-container {
+        display: flex; 
+        width: calc(50vw * 4); 
+        position: relative; 
+        
+    }
+
+    .content {
+        width: 50vw; 
+        height: 100vh; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    video {
+        object-fit: cover;
+        border-radius: 25px;
+        width: 100%;
+        height: 100%;
+    }
+
+ 
+</style>
+
+
+<div class="section1" style="display:flex; justify-content:center; margin-top:60px;">
+    <div class="container" style="display: flex; justify-content: space-around; margin-bottom: 50px;">
+
+        <div class="welcome-container">
+
+
+
+            <div style="max-width:300px;"><img src="~/Content/Assets/Welcome.png" class="img-fluid" id="welcomeImage" /></div>
+
+
+            <div style=" border-radius: 35px; padding: 25px; display: flex; align-items: center; flex-wrap:wrap;  " id="main-container">
+
+
+                <div style="max-width: 500px;    ">
+                    <div class="p1 " id="lalezar-regular" style="opacity: 0; text-align:center; "><h5 style="font-size: 4rem; color:wheat; margin-right:30px;">Il vostro portale <span id="adjective" class="rubik-vinyl-regular">Esclusivo</span> per esplorare <span>L'eccellenza</span>  culinaria della città..</h5></div>
+
+                </div>
+
+                <div class="logo-container" id="logo-container" style="max-width:400px; opacity: 0;">
+                    <img src="~/Content/Assets/Logo-EliteMenu.svg" class="img-fluid" style="border-radius: 50%; " />
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section-2" style="margin-top:100px; display:flex; justify-content:center;">
+    <div class="container" style="display: flex; justify-content: center; align-items: center;  flex-wrap: wrap;">
+
+
+        <div style="max-width:550px; margin-left:35px;" class="ratio ratio-16x9">
+
+            <video autoplay muted loop id="image-spaghetti" style="border-radius:25px;">
+                <source src="~/Content/Assets/Arrosto_medium.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+        <div class="p2" style="text-align: center; max-width:360px;">
+            <h5 style="font-size: 3.5rem; color:wheat;" class="text-description" id="lalezar-regular">Immergetevi in un <span class="rubik-vinyl-regular">Viaggio</span> gastronomico senza precedenti.</h5>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="section-3" style="display:flex; justify-content:center; margin-top:100px;  ">
+    <div id="slow-section" style="max-width: 550px; margin-right: auto; margin-left: auto;">
+        <img src="~/Content/Assets/tuna-piattto.png" class="img-fluid" id="rotating-image" style="border-radius:30px;" />
+    </div>
+</div>
+
+
+
+
+<div class="section-4" style="display: flex; justify-content: center; margin-top: 100px; margin-bottom:100px;">
+
+    <div class="container" style="display: flex; justify-content: center; align-items: center; margin-left: auto; margin-right: auto;">
+
+
+        <div>
+            <div class="p2" style="opacity: 1; text-align: center; max-width: 360px; margin-right: 20px; "><h5 style="font-size: 3rem; color:wheat;" class="text-description-2" id="lalezar-regular">"Scoprite i nostri Ristoranti , il <span class="rubik-vinyl-regular"> Cuore</span> pulsante e il carattere distintivo della nostra destinazione."</h5></div>
+        </div>
+
+        <div style="max-width:550px; margin-right:20px;" class="ratio ratio-16x9">
+
+            <video autoplay muted loop id="image-ristorante" style="border-radius:25px;">
+                <source src="~/Content/Assets/risto-home.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+
+        
+
+    </div>
+
+
+
+</div>
+
+<div class="main-container">
+    <div class="extra-long-container">
+        <div class="content" style="background-color: #0000003d; border-radius: 20px; margin-right: 25px;">
+
+
+
+
+            <div style="display: flex; border-radius: 77px;  flex-direction: column; align-items: center;">
+
+
+                <div style="max-width:250px;">
+                    <img src="~/Content/Assets/search-home.svg" class="img-fluid" style="background-color: #BF953F; border-radius: 50%; padding: 10px; " />
+                </div>
+
+                <div>
+                    <div class="p2" style="text-align: center; max-width: 360px; margin-top: 30px; "><h5 style="font-size: 2.5rem; color:wheat;" class="text-description-2" id="lalezar-regular">"Utilizzate il nostro motore di ricerca intuitivo per trovare il ristorante  <span class="rubik-vinyl-regular">Perfetto</span> per ogni occasione."</h5></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="content" style="background-color: #0000003d; margin-right: 25px; border-radius: 20px; ">
+
+            <div style="display: flex; flex-direction: column; display: flex; align-items: center; border-radius: 20px;   ">
+
+
+
+                <div @*class="pulsating-border "*@ style="  max-width:350px; ">
+                    <img class="img-fluid" src="@Url.Content("~/Content/Assets/2.svg")" alt="Oggetto Sospeso" />
+                </div>
+
+                <div>
+                    <div class="p2" style="text-align: center; max-width: 360px; margin-top: 30px; ">
+                        <h5 style="font-size: 3rem; color:wheat;" class="text-description-2" id="lalezar-regular">
+                            "Esplora i nostri menu <span class="rubik-vinyl-regular">Esclusivi </span>
+                            "
+                        </h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content" style="background-color: #0000003d; margin-right: 25px; border-radius: 20px; ">
+            <div style="border-radius: 77px; display: flex; align-items: center; flex-direction: column; border-radius: 20px; margin-right: 25px;  ">
+
+                <div style="max-width:300px;">
+                    <img src="~/Content/Assets/Elite Menu.png" class="img-fluid" style="border-radius:25px;" />
+
+                </div>
+                <div class="p2" style="text-align: center; max-width: 360px; margin-top: 30px;">
+                    <h5 style="font-size: 2rem; color:wheat;" class="text-description-2" id="lalezar-regular">
+                        "
+                        Lasciati <span class="rubik-vinyl-regular">incantare</span> da una selezione di piatti che promettono di trasformare ogni tuo pasto in un'esperienza memorabile."
+                    </h5>
+                </div>
+
+            </div>
+        </div>
+        <div class="content" style="background-color: #0000003d; margin-right: 25px; border-radius: 20px; ">
+            <div style="display: flex; flex-direction: column; align-items: center; border-radius: 20px;   ">
+
+
+                <div class="row">
+
+                    <div class="col"><svg fill="#BF953F" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-51.2 -51.2 614.40 614.40" xml:space="preserve" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="441.989,415.114 441.988,415.115 441.991,415.112 "></polygon> </g> </g> <g> <g> <path d="M511.735,258.37c-1.466-27.595-8.93-53.535-22.187-77.1c-14.146-25.145-34.213-46.248-59.644-62.723 c-25.19-16.317-50.467-28.548-77.273-37.39c-44.162-14.566-88.035-20.259-130.402-16.933 c-37.518,2.949-73.109,12.835-105.785,29.386C62.851,120.757,20.605,165.147,6.191,209.459 c-9.082,27.925-8.168,50.155,2.718,66.072c16.949,24.781,51.782,26.754,72.594,27.933l2.23,0.128 c1.301,0.077,2.646,0.147,4.033,0.221c28.986,1.536,72.791,3.857,117.104,71.174c32.155,48.847,75.842,65.644,106.829,71.134 c9.775,1.732,19.725,2.575,29.66,2.575c34.96,0,69.676-10.454,95.31-29.457c1.784-1.322,3.574-2.71,5.321-4.127 C488.858,377.135,514.932,318.54,511.735,258.37z M430.496,400.932c-0.001,0.001-0.002,0.001-0.002,0.001 c-1.543,1.251-3.12,2.477-4.695,3.641c-29.027,21.519-71.526,30.55-110.917,23.574c-27.456-4.864-66.183-19.777-94.766-63.198 c-21.599-32.811-45.348-54.741-72.609-67.045c-23.115-10.432-43.727-11.525-58.778-12.322c-1.353-0.072-2.664-0.14-3.932-0.215 l-2.262-0.129c-17.459-0.989-46.68-2.644-58.56-20.013c-7.522-10.999-7.666-27.863-0.426-50.12 c10.163-31.245,42.07-75.29,101.142-105.213c29.037-14.708,69.857-28.455,121.009-28.455c30.23,0,64.078,4.806,101.213,17.055 c25.656,8.463,48.873,19.703,73.066,35.375c44.653,28.928,70.766,73.486,73.527,125.471 C496.394,313.689,472.838,366.622,430.496,400.932z"></path> </g> </g> <g> <g> <path d="M481.353,259.983c-2.548-47.987-26.696-89.147-67.991-115.901c-23.295-15.091-45.621-25.905-70.261-34.032 c-32.843-10.831-65.56-16.325-97.243-16.325c-65.896,0-113.753,23.253-142.298,42.761c-33.527,22.913-59.111,53.711-68.438,82.385 c-4.133,12.705-7.679,29.87-1.101,39.486c7.056,10.316,24.774,13.351,49.207,14.733c0,0,4.828,0.273,6.151,0.342 c15.108,0.801,37.938,2.01,63.138,13.383c29.424,13.28,54.86,36.649,77.764,71.444c34.383,52.234,84.439,60.037,111.215,60.04 h0.012c28.393,0,57.192-8.784,77.036-23.496c1.423-1.054,2.865-2.174,4.289-3.326 C462.158,359.611,484.035,310.455,481.353,259.983z M411.342,377.295c-1.219,0.988-2.452,1.944-3.667,2.844 c-16.814,12.464-41.549,19.906-66.167,19.906h-0.01c-23.103-0.003-66.292-6.737-95.969-51.823 c-24.863-37.77-52.83-63.299-85.503-78.045c-28.322-12.782-53.212-14.101-69.678-14.974c-1.308-0.071-6.091-0.34-6.09-0.34 c-27.752-1.57-33.82-5.217-35.139-6.779c-0.685-1.508-1.456-8.754,3.364-23.567c8.122-24.971,31.067-52.246,61.378-72.96 c26.418-18.055,70.764-39.577,131.997-39.577c29.737,0,60.53,5.184,91.525,15.407c23.117,7.624,44.106,17.797,66.054,32.016 c36.259,23.49,57.457,59.554,59.688,101.548C465.499,305.606,446.14,349.097,411.342,377.295z"></path> </g> </g> <g> <g> <path d="M357.256,220.773c-31.202,0-56.587,25.385-56.587,56.587c0,31.202,25.385,56.587,56.587,56.587 s56.587-25.385,56.587-56.587C413.843,246.158,388.458,220.773,357.256,220.773z M357.256,315.692 c-21.136,0-38.332-17.196-38.332-38.332s17.196-38.332,38.332-38.332s38.332,17.196,38.332,38.332 S378.392,315.692,357.256,315.692z"></path> </g> </g> <g> <g> <path d="M190.25,134.388c-4.358-2.528-9.945-1.044-12.474,3.316l-52.936,91.269c-2.529,4.36-1.044,9.945,3.316,12.474 c1.441,0.837,3.017,1.234,4.571,1.234c3.147,0,6.211-1.631,7.904-4.549l52.936-91.269 C196.095,142.502,194.61,136.917,190.25,134.388z"></path> </g> </g> <g> <g> <path d="M267.357,136.214c-4.357-2.528-9.945-1.044-12.474,3.316l-69.846,120.424c-2.529,4.36-1.044,9.945,3.316,12.474 c1.441,0.837,3.017,1.234,4.571,1.234c3.147,0,6.211-1.631,7.904-4.549l69.846-120.424 C273.202,144.327,271.718,138.743,267.357,136.214z"></path> </g> </g> <g> <g> <path d="M344.487,153.394c-4.351-2.545-9.94-1.078-12.486,3.272l-91.75,156.932c-2.545,4.351-1.079,9.942,3.272,12.486 c1.448,0.847,3.033,1.249,4.598,1.249c3.136,0,6.19-1.619,7.887-4.522l91.75-156.932 C350.304,161.528,348.839,155.938,344.487,153.394z"></path> </g> </g> <g> <g> <path d="M331.425,338.791c-4.351-2.547-9.942-1.079-12.486,3.272l-9.02,15.429c-2.545,4.351-1.079,9.942,3.272,12.486 c1.448,0.847,3.034,1.249,4.599,1.249c3.136,0,6.19-1.619,7.887-4.522l9.02-15.429 C337.242,346.925,335.777,341.334,331.425,338.791z"></path> </g> </g> <g> <g> <path d="M418.254,189.869c-4.349-2.547-9.94-1.079-12.486,3.272l-11.307,19.34c-2.545,4.351-1.079,9.942,3.272,12.486 c1.448,0.847,3.033,1.249,4.598,1.249c3.136,0,6.19-1.619,7.887-4.522l11.307-19.34 C424.073,198.003,422.607,192.413,418.254,189.869z"></path> </g> </g> </g></svg></div>
+
+                    <div class="col">
+                        <svg fill="#BF953F" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M503.229,25.254c-2.149-8.048-8.434-14.333-16.482-16.482C464.94,2.951,442.412,0,419.791,0 c-45.816,0-89.808,11.841-128.493,34.057l17.164,17.166l17.228,17.228l117.715,117.715l17.372,17.371l17.112,17.11 c11.387-19.876,20.119-41.236,25.876-63.53C514.921,113.939,514.735,68.34,503.229,25.254z"></path> </g> </g> <g> <g> <path d="M434.225,242.811l-16.541-16.541L285.697,94.282l-16.51-16.508l-16.53-16.531c-5.415,4.599-10.679,9.429-15.759,14.508 c-32.673,32.675-56.019,73.474-67.514,117.985c-8.654,33.508-10.446,68.467-5.454,102.583H23.275 c-9.413,0-17.898,5.671-21.501,14.367c-3.601,8.696-1.61,18.708,5.046,25.363l169.137,169.134 c4.453,4.453,10.404,6.817,16.46,6.817c2.999,0,6.023-0.579,8.901-1.773c8.696-3.601,14.367-12.088,14.367-21.499V348.075 c12.46,1.826,25.054,2.78,37.683,2.78c0.005,0,0.002,0,0.005,0c69.078,0,134.031-26.905,182.874-75.751 c5.066-5.064,9.877-10.346,14.487-15.785L434.225,242.811z"></path> </g> </g> </g></svg>
+
+                    </div>
+
+                    <div class="col">
+                        <svg fill="#BF953F" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 463 463" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M455.5,288h-41.221c-3.084-15.979-15.823-28.56-31.886-31.398c-1.01-5.693-3.278-11.1-6.619-15.843 c9.659-13.178,12.237-29.729,6.221-43.198c-0.753-1.687-2.102-3.036-3.789-3.789c-12.547-5.605-27.77-3.75-40.449,4.339 C332.011,189.455,322.212,184,311.5,184c-17.121,0-31.086,13.733-31.481,30.76c-4.752-7.744-11.667-14.072-19.926-18.066 c1.861-4.016,2.907-8.484,2.907-13.194c0-15.046-10.604-27.663-24.732-30.768C235.163,138.604,222.546,128,207.5,128 c-7.405,0-14.437,2.588-20,7.175c-5.563-4.587-12.595-7.175-20-7.175c-15.046,0-27.663,10.604-30.768,24.732 C122.604,155.837,112,168.454,112,183.5c0,17.369,14.131,31.5,31.5,31.5c8.413,0,16.25-3.412,21.995-9.073 c2.563,6.648,5.758,15.951,8.497,26.997c-2.661-0.617-5.192-0.925-7.723-0.925c-5.795,0-11.29,1.343-16.217,3.733 C141.213,223.405,127.035,216,111.5,216c-1.424,0-2.869,0.104-4.329,0.26c-0.664-4.336-2.345-9.108-5.814-13.445 c-2.588-3.235-7.307-3.76-10.542-1.171c-3.234,2.587-3.759,7.307-1.171,10.542c1.067,1.334,1.753,2.731,2.192,4.075 c-1.462-0.156-2.909-0.26-4.335-0.26C61.309,216,40,237.309,40,263.5c0,8.829,2.389,17.227,6.778,24.5H7.5 c-4.142,0-7.5,3.358-7.5,7.5c0,4.142,3.358,7.5,7.5,7.5h60.25l14.55,19.4c5.917,7.89,15.338,12.6,25.2,12.6h248 c9.862,0,19.283-4.71,25.2-12.6l14.55-19.4h60.25c4.142,0,7.5-3.358,7.5-7.5C463,291.358,459.642,288,455.5,288z M339.501,215.839 c8.479-8.48,20.32-12.095,29.808-9.381c2.716,9.487-0.9,21.329-9.379,29.809c-5.918,5.918-13.472,9.456-20.721,10.138l8.304-8.302 c2.929-2.929,2.93-7.678,0.001-10.607c-2.929-2.929-7.678-2.93-10.607-0.001l-7.322,7.32 C330.631,228.112,334.057,221.283,339.501,215.839z M311.5,199c6.285,0,11.967,3.585,14.739,9.095 c-2.974,3.448-5.422,7.19-7.317,11.094C314.076,217.093,308.854,216,303.5,216c-2.869,0-5.693,0.324-8.438,0.934 c-0.041-0.475-0.062-0.953-0.062-1.434C295,206.402,302.402,199,311.5,199z M268.204,224.301 c-1.557-0.196-3.126-0.301-4.704-0.301c-19.426,0-35.622,14.098-38.896,32.599c-1.375,0.242-2.734,0.563-4.076,0.951 c-3.606-9.824-10.902-17.783-20.135-22.076c2.86-12.131,6.356-22.371,9.118-29.54C215.255,211.59,223.089,215,231.5,215 c7.006,0,13.484-2.302,18.721-6.185C257.997,211.536,264.4,217.156,268.204,224.301z M172.169,184.936 c-1.817-2.071-4.622-2.978-7.311-2.365c-2.686,0.615-4.819,2.653-5.555,5.308C157.328,195.016,150.828,200,143.5,200 c-9.098,0-16.5-7.402-16.5-16.5s7.402-16.5,16.5-16.5c4.142,0,7.5-3.358,7.5-7.5c0-9.098,7.402-16.5,16.5-16.5 c5.533,0,10.673,2.77,13.75,7.408c1.39,2.095,3.736,3.355,6.25,3.355c2.514,0,4.861-1.26,6.25-3.355 c3.076-4.639,8.216-7.408,13.75-7.408c9.098,0,16.5,7.402,16.5,16.5c0,4.142,3.358,7.5,7.5,7.5c9.098,0,16.5,7.402,16.5,16.5 s-7.402,16.5-16.5,16.5c-7.328,0-13.828-4.984-15.805-12.121c-0.736-2.655-2.869-4.693-5.555-5.308 c-0.556-0.127-1.117-0.189-1.673-0.189c-2.132,0-4.196,0.911-5.638,2.554c-3.997,4.555-9.441,7.064-15.33,7.064 C181.61,192,176.166,189.491,172.169,184.936z M193.296,206.492c-1.885,5.319-3.907,11.627-5.796,18.719 c-1.888-7.092-3.911-13.4-5.796-18.719c1.905,0.323,3.84,0.508,5.796,0.508C189.455,207,191.39,206.815,193.296,206.492z M166.269,247c1.428,0,2.903,0.187,4.508,0.571c3.135,0.75,6.313,0.75,9.446,0c1.605-0.384,3.081-0.571,4.508-0.571 C197.562,247,208,257.991,208,271.5c0,6.136-2.19,12.009-6.077,16.5h-52.846c-3.887-4.491-6.077-10.364-6.077-16.5 C143,257.991,153.438,247,166.269,247z M66.156,288C59.042,281.819,55,273.02,55,263.5c0-17.92,14.58-32.5,32.5-32.5 c3.008,0,6.102,0.536,9.738,1.686c1.473,0.466,3.052,0.466,4.524,0c3.636-1.15,6.73-1.686,9.738-1.686 c10.755,0,20.557,5.191,26.59,13.807c-6.26,7.035-10.09,16.41-10.09,26.693c0,5.757,1.228,11.377,3.511,16.5H66.156z M368.7,313.4 c-3.1,4.133-8.034,6.6-13.2,6.6h-248c-5.166,0-10.101-2.467-13.2-6.6L86.5,303h290L368.7,313.4z M219.489,288 c2.147-4.818,3.348-10.077,3.484-15.475c2.719-1.01,5.582-1.525,8.527-1.525c1.989,0,3.897-0.79,5.303-2.197 c1.407-1.406,2.197-3.314,2.197-5.303c0-13.509,10.991-24.5,24.5-24.5c3.939,0,7.847,1.04,11.614,3.091 c3.182,1.733,7.146,0.943,9.421-1.875c4.73-5.857,11.642-9.216,18.964-9.216c3.875,0,7.637,0.942,11.048,2.721 c-0.651,5.156-0.364,10.311,0.921,15.205l-9.272,9.27c-2.929,2.929-2.93,7.678-0.001,10.607c1.465,1.465,3.384,2.197,5.304,2.197 c1.919,0,3.838-0.732,5.303-2.196l8.848-8.845c3.579,1.068,7.31,1.602,11.094,1.602c9.683,0,19.685-3.421,28.216-9.842 c1.969,3.588,3.04,7.634,3.04,11.781c0,4.142,3.358,7.5,7.5,7.5c10.894,0,20.145,7.149,23.321,17H219.489z"></path> </g> </g> </g></svg>
+
+                    </div>
+
+                    <div class="col">
+                        <svg fill="#BF953F" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 463 463" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M459.996,8.495c-0.667-2.707-2.781-4.821-5.488-5.488c-12.167-2.997-24.935-3.758-37.956-2.255 c-30.703,3.54-60.875,18.755-84.961,42.84c-24.085,24.085-39.299,54.258-42.84,84.961c-1.331,11.544-0.877,22.889,1.332,33.794 c-0.105,0.11-0.22,0.206-0.319,0.324c-33.014,39.222-55.366,81.822-70.263,123.99c-12.788-49.63-31.862-95.286-56.904-135.998 C125.318,90.058,74.456,39.741,11.421,1.106C8.125-0.914,3.835-0.098,1.51,2.989c-2.325,3.087-1.924,7.435,0.927,10.044 C79,83.108,132.937,164.55,162.752,255.096c12.556,38.133,29.249,100.395,29.249,200.404c0,4.143,3.358,7.5,7.5,7.5h32 c4.142,0,7.5-3.357,7.5-7.5c0-5.437-0.029-11.003-0.059-16.688c-0.392-74.703-0.886-169.281,63.947-265.461 c6.104,1.096,12.338,1.648,18.663,1.648c4.262-0.001,8.567-0.25,12.897-0.75c30.703-3.54,60.875-18.755,84.96-42.84 c24.085-24.085,39.3-54.259,42.841-84.961C463.753,33.431,462.994,20.661,459.996,8.495z M177,250.405 C155.416,184.853,121.562,123.98,75.987,68.61c28.689,26.611,53.381,56.662,73.833,89.912 c28.266,45.954,48.724,98.473,60.829,156.102c-3.958,14.085-7.146,28.023-9.693,41.672 C196.629,323.677,189.312,287.798,177,250.405z M223.942,438.891c0.017,3.072,0.032,6.109,0.043,9.109h-16.934 c0.661-49.269,8.03-110.876,32.567-172.211C223.401,335.698,223.698,392.412,223.942,438.891z M447.35,44.73 c-6.535,56.666-57.953,108.084-114.619,114.619c-6.813,0.787-13.53,0.844-20.09,0.205c24.296-32.846,56.551-65.776,99.375-98.066 c3.308-2.493,3.967-7.196,1.473-10.504c-2.493-3.306-7.196-3.966-10.503-1.473c-40.411,30.47-73.538,62.817-99.801,97.534 c-0.332-5.502-0.187-11.105,0.468-16.775c6.535-56.666,57.953-108.084,114.619-114.619c9.631-1.11,19.077-0.795,28.144,0.936 C448.145,25.654,448.461,35.099,447.35,44.73z"></path> </g> </g> </g></svg>
+                        @*<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3V6.52779C10.1738 5.78835 9.14158 5.27448 8 5.08296V5C8 4.44772 7.55229 4 7 4C6.44772 4 6 4.44772 6 5V7V10V12V13C6 13.7083 6.12275 14.388 6.34813 15.0189L8.02624 13.4606C8.00891 13.3095 8 13.1558 8 13V12.126C8.36017 12.2187 8.70071 12.3603 9.01411 12.5433L10.5227 11.1425C9.78956 10.6099 8.93115 10.2392 8 10.083V7.12602C9.63464 7.54674 10.8649 8.97478 10.9896 10.709L17.6391 4.53441C17.6909 4.48628 17.7446 4.44143 17.8 4.39984C17.6175 4.15704 17.3271 4 17 4C16.4477 4 16 4.44772 16 5V5.08296C14.8584 5.27448 13.8262 5.78835 13 6.52779V3ZM11 18.917C10.2346 18.7886 9.51825 18.5153 8.88027 18.1262L10.4352 16.6823C10.617 16.7597 10.8056 16.824 11 16.874V16.1579L13.9245 13.4423C13.3472 14.1356 13 15.0273 13 16V16.874C14.7252 16.4299 16 14.8638 16 13V12.126C15.5182 12.25 15.0715 12.4615 14.678 12.7426L18 9.65785V10V12V13C18 15.973 15.8377 18.441 13 18.917V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V18.917ZM19.6805 6.73279C20.0852 6.35699 20.1086 5.72426 19.7328 5.31955C19.357 4.91484 18.7243 4.8914 18.3196 5.26721L4.31955 18.2672C3.91484 18.643 3.89141 19.2757 4.26721 19.6805C4.64301 20.0852 5.27574 20.1086 5.68046 19.7328L19.6805 6.73279Z" fill="#BF953F"></path> </g></svg>*@
+
+                    </div>
+
+                    <div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="p2" style="text-align: center; max-width: 360px; margin-top:40px;  ">
+                    <h5 style="font-size: 2rem; color:wheat;" class="text-description-2" id="lalezar-regular">
+                        "Utilizza i nostri semplici filtri per navigare facilmente tra le opzioni di piatti,  e trova esattamente ciò che cerchi in un attimo!"
+                    </h5>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+       
+
+    </div>
+
+
+</div>
+<div class="container" style="margin-top:100px;">
+    <div class="row" style="flex-direction:column;">
+        <div class="col" style="display: flex; flex-direction: column; align-items: center; }">
+            <h2 style="text-align: center; font-size: 50px; color: #BF953F;">
+                Prenotazioni Facili
+            </h2>
+
+
+            <div style="max-width:400px;">
+
+                
+                <h5 style="font-size: 2.5rem; color: wheat; margin-top: 40px; text-align:center;" class="text-description-2" id="lalezar-regular">
+                    "Prenotate un tavolo direttamente dal nostro Portale con solo pochi clic.
+                </h5>
+            </div>
+            
+        </div>
+        <div class="col" style="display: flex; flex-direction: column; align-items: center;margin-top:100px; margin-bottom:100px;">
+
+            <h2 style="text-align: center; font-size: 50px; color: #BF953F;">
+                Feedback
+            </h2>
+
+
+            <div style="max-width:400px;">
+                <h5 style="font-size: 2.3rem; color: wheat; text-align: center; margin-top: 40px;" class="text-description-2" id="lalezar-regular">
+                    "Ricordatevi di condividere la vostra esperienza lasciando un feedback sul ristorante visitato; ogni vostro commento contribuisce a rendere il nostro servizio ancora migliore!"
+                </h5>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        gsap.registerPlugin(ScrollTrigger);  
+
+        // Anima l'immagine di benvenuto per entrare da sinistra
+        const welcomeImage = document.getElementById('welcomeImage');
+        gsap.from(welcomeImage, {
+            duration: 1.5,
+            x: -1000,
+            ease: "expo.out"
+        });
+
+        // Elementi e configurazioni per mainContainer
+        /*const mainContainer = document.getElementById('main-container');*/
+        const p1 = document.querySelector('.p1');
+        const logoContainer = document.getElementById('logo-container');
+
+        
+        gsap.set([p1, logoContainer], { opacity: 0 });
+        gsap.set(logoContainer, { x: 300 });
+
+        
+        const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1.out" } });
+        tl.to(logoContainer, { x: 0, opacity: 1, duration: 1 })
+            .to(p1, { opacity: 1 });
+
+        
+        const imageSpaghetti = document.getElementById('image-spaghetti');
+        const textDescription = document.getElementsByClassName('text-description');
+        const imageRistorante = document.getElementById('image-ristorante');
+        const textDescription2 = document.getElementsByClassName('text-description-2');
+
+
+        gsap.from(imageSpaghetti, {
+            scrollTrigger: {
+                trigger: imageSpaghetti,
+                start: "top 80%",  
+                toggleActions: "play none none none",
+
+
+            },
+            x: -300, 
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        
+        gsap.from(textDescription, {
+            scrollTrigger: {
+                trigger: textDescription,
+                start: "top 80%",  
+                toggleActions: "play none none none",
+
+
+            },
+            x: 300, 
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        gsap.from(imageRistorante, {
+            scrollTrigger: {
+                trigger: imageRistorante,
+                start: "top 80%",  
+                toggleActions: "play none none none",
+
+
+            },
+            x: 300, 
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+        gsap.from(textDescription2, {
+            scrollTrigger: {
+                trigger: textDescription2,
+                start: "top 80%",  
+                toggleActions: "play none none none",
+
+
+            },
+            x: -300, 
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+
+
+
+
+
+
+        const rotatingImage = document.getElementById('rotating-image');
+
+        if (rotatingImage) {
+            gsap.to(rotatingImage, {
+                scrollTrigger: {
+                    trigger: rotatingImage,
+                    start: "top bottom", // Quando l'immagine entra nella vista
+                    end: "bottom top",
+                    
+                    scrub: 1, // Collega le animazioni al movimento di scroll
+
+                },
+
+                rotation: 360, // Completa una rotazione di 360 gradi
+                ease: "none"
+            });
+        }
+
+        const adjectives = ["Esclusivo", "Innovativo"];
+        let currentAdjectiveIndex = 0;
+
+        const adjectiveElement = document.getElementById('adjective');
+
+        const changeAdjective = () => {
+            
+            adjectiveElement.style.opacity = 0;
+
+           
+            setTimeout(() => {
+                currentAdjectiveIndex = (currentAdjectiveIndex + 1) % adjectives.length;
+                adjectiveElement.textContent = adjectives[currentAdjectiveIndex];
+
+                
+                adjectiveElement.style.opacity = 1;
+            }, 500); 
+        };
+
+        
+        setInterval(changeAdjective, 3500);
+
+        const extraLongContainer = document.querySelector(".extra-long-container");
+
+        gsap.to(".extra-long-container", {
+            xPercent: -100,
+            x: () => window.innerWidth,
+            ease: "none",
+            scrollTrigger: {
+                pin: ".main-container",
+                trigger: ".main-container",
+                start: "left left",
+                end: () => `+=${extraLongContainer.offsetWidth} bottom`,
+                scrub: 1,
+
+            }
+        });
+
+
+    });
+
+
+
+
+
+
+
+</script>

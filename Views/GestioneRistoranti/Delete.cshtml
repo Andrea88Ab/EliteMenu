@@ -1,0 +1,48 @@
+﻿@model EliteMenu.Models.Ristoranti
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Elimina Ristorante";
+}
+
+<div class="container mt-5 ">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title text-center">Elimina Ristorante</h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="text-warning text-center">Sei sicuro di voler eliminare questo ristorante?</h3>
+                    <div>
+                        <dl class="row">
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.Nome)
+                            </dd>
+
+                            
+
+                            <dt class="col-sm-3">
+                                @Html.DisplayNameFor(model => model.Descrizione)
+                            </dt>
+                            <dd class="col-sm-9">
+                                @Html.DisplayFor(model => model.Descrizione)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    @using (Html.BeginForm("Delete", "GestioneRistoranti", FormMethod.Post, new { id = Model.RistoranteID }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Elimina</button>
+                        @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-secondary" })
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
