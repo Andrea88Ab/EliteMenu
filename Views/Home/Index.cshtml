@@ -316,7 +316,7 @@
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-        gsap.registerPlugin(ScrollTrigger);  
+        gsap.registerPlugin(ScrollTrigger);
 
         // Anima l'immagine di benvenuto per entrare da sinistra
         const welcomeImage = document.getElementById('welcomeImage');
@@ -331,16 +331,16 @@
         const p1 = document.querySelector('.p1');
         const logoContainer = document.getElementById('logo-container');
 
-        
+
         gsap.set([p1, logoContainer], { opacity: 0 });
         gsap.set(logoContainer, { x: 300 });
 
-        
+
         const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1.out" } });
         tl.to(logoContainer, { x: 0, opacity: 1, duration: 1 })
             .to(p1, { opacity: 1 });
 
-        
+
         const imageSpaghetti = document.getElementById('image-spaghetti');
         const textDescription = document.getElementsByClassName('text-description');
         const imageRistorante = document.getElementById('image-ristorante');
@@ -350,27 +350,27 @@
         gsap.from(imageSpaghetti, {
             scrollTrigger: {
                 trigger: imageSpaghetti,
-                start: "top 80%",  
+                start: "top 80%",
                 toggleActions: "play none none none",
 
 
             },
-            x: -300, 
+            x: -300,
             opacity: 0,
             duration: 1,
             ease: "power2.out"
         });
 
-        
+
         gsap.from(textDescription, {
             scrollTrigger: {
                 trigger: textDescription,
-                start: "top 80%",  
+                start: "top 80%",
                 toggleActions: "play none none none",
 
 
             },
-            x: 300, 
+            x: 300,
             opacity: 0,
             duration: 1,
             ease: "power2.out"
@@ -379,12 +379,12 @@
         gsap.from(imageRistorante, {
             scrollTrigger: {
                 trigger: imageRistorante,
-                start: "top 80%",  
+                start: "top 80%",
                 toggleActions: "play none none none",
 
 
             },
-            x: 300, 
+            x: 300,
             opacity: 0,
             duration: 1,
             ease: "power2.out"
@@ -393,12 +393,12 @@
         gsap.from(textDescription2, {
             scrollTrigger: {
                 trigger: textDescription2,
-                start: "top 80%",  
+                start: "top 80%",
                 toggleActions: "play none none none",
 
 
             },
-            x: -300, 
+            x: -300,
             opacity: 0,
             duration: 1,
             ease: "power2.out"
@@ -417,7 +417,7 @@
                     trigger: rotatingImage,
                     start: "top bottom", // Quando l'immagine entra nella vista
                     end: "bottom top",
-                    
+
                     scrub: 1, // Collega le animazioni al movimento di scroll
 
                 },
@@ -433,20 +433,20 @@
         const adjectiveElement = document.getElementById('adjective');
 
         const changeAdjective = () => {
-            
+
             adjectiveElement.style.opacity = 0;
 
-           
+
             setTimeout(() => {
                 currentAdjectiveIndex = (currentAdjectiveIndex + 1) % adjectives.length;
                 adjectiveElement.textContent = adjectives[currentAdjectiveIndex];
 
-                
+
                 adjectiveElement.style.opacity = 1;
-            }, 500); 
+            }, 500);
         };
 
-        
+
         setInterval(changeAdjective, 3500);
 
         const extraLongContainer = document.querySelector(".extra-long-container");
